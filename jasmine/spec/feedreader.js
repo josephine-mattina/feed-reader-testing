@@ -78,15 +78,15 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    // /* TODO: Write a new test suite named "Initial Entries" */
     // describe('Initial Entries', function() {
-    //      TODO: Write a test that ensures when the loadFeed
-    //      * function is called and completes its work, there is at least
-    //      * a single .entry element within the .feed container.
-    //      * Remember, loadFeed() is asynchronous so this test will require
-    //      * the use of Jasmine's beforeEach and asynchronous done() function.
+    //      // TODO: Write a test that ensures when the loadFeed
+    //      // * function is called and completes its work, there is at least
+    //      // * a single .entry element within the .feed container.
+    //      // * Remember, loadFeed() is asynchronous so this test will require
+    //      // * the use of Jasmine's beforeEach and asynchronous done() function.
          
-    //     let entries = document.querySelectorAll('.entry-link');
+    //     const entries = document.querySelectorAll('.entry');
 
     //     beforeEach(function(done) {
     //         loadFeed(0, function() {
@@ -94,27 +94,39 @@ $(function() {
     //         });
     //     });
 
-    //     it('should contain at least one feed', function() {
+    //     it('should contain at least one feed', function(done) {
     //         expect(entries.length).toBeGreaterThan(0);
+    //         done();
     //     });
     // });
 
 
     // /* TODO: Write a new test suite named "New Feed Selection" */
-    // describe('New Feed Selection', function() {
-    //      TODO: Write a test that ensures when a new feed is loaded
-    //      * by the loadFeed function that the content actually changes.
-    //      * Remember, loadFeed() is asynchronous.
+    describe('New Feed Selection', function() {
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+        let entries,
+            oldFeed,
+            newFeed;
          
-    //     beforeEach(function(done) {
-    //         loadFeed(0, function() {
-    //             done();
-    //         });
-    //     });
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
 
-    //     it('changes content', function() {
-    //         $('.feed-list.li').click();
-    //         expect($('.feed')).toBe();
-    //     });
-    // });
+        it('changes content', function(done) {
+            entries = $('.feed').find('.entry');
+            oldFeed = entries[0].innerText;
+
+            loadFeed(1, function() {
+                entries = $('.feed').find('.entry');
+                newFeed = entries[0].innerText;
+                expect(oldFeed).not.toEqual(newFeed);
+                done();
+            });
+        });
+    });
 }());
