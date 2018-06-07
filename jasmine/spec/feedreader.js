@@ -83,17 +83,16 @@ $(function() {
          // * Remember, loadFeed() is asynchronous so this test will require
          // * the use of Jasmine's beforeEach and asynchronous done() function.
          
-        const entries = document.querySelectorAll('.entry');
+        let entries = document.querySelectorAll('.entry-link');
 
         beforeEach(function(done) {
-            setTimeout(function() {
-                loadFeed(0, done);
-            }, 1000);
+            loadFeed(0, function() {
+                done();
+            });
         });
 
-        it('should contain at least one feed', function(done) {
+        it('should contain at least one feed', function() {
             expect(entries.length).toBeGreaterThan(0);
-            done();
         });
     });
 
