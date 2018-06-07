@@ -70,35 +70,32 @@ $(function() {
         it('displays when menu icon is clicked', function() {
             $('a.menu-icon-link').click();
             expect(body.className).not.toBe('menu-hidden');
-        });
-
-        it('hides when menu icon is clicked', function() {
             $('a.menu-icon-link').click();
             expect(body.className).toBe('menu-hidden');
         });
     });
 
-    // /* TODO: Write a new test suite named "Initial Entries" */
-    // describe('Initial Entries', function() {
-    //      // TODO: Write a test that ensures when the loadFeed
-    //      // * function is called and completes its work, there is at least
-    //      // * a single .entry element within the .feed container.
-    //      // * Remember, loadFeed() is asynchronous so this test will require
-    //      // * the use of Jasmine's beforeEach and asynchronous done() function.
+    /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+         // TODO: Write a test that ensures when the loadFeed
+         // * function is called and completes its work, there is at least
+         // * a single .entry element within the .feed container.
+         // * Remember, loadFeed() is asynchronous so this test will require
+         // * the use of Jasmine's beforeEach and asynchronous done() function.
          
-    //     const entries = document.querySelectorAll('.entry');
+        const entries = document.querySelectorAll('.entry');
 
-    //     beforeEach(function(done) {
-    //         loadFeed(0, function() {
-    //             done();
-    //         });
-    //     });
+        beforeEach(function(done) {
+            setTimeout(function() {
+                loadFeed(0, done);
+            }, 1000);
+        });
 
-    //     it('should contain at least one feed', function(done) {
-    //         expect(entries.length).toBeGreaterThan(0);
-    //         done();
-    //     });
-    // });
+        it('should contain at least one feed', function(done) {
+            expect(entries.length).toBeGreaterThan(0);
+            done();
+        });
+    });
 
 
     // /* TODO: Write a new test suite named "New Feed Selection" */
