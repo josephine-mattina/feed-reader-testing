@@ -10,10 +10,13 @@ Clone or download the [repo](https://github.com/josephine-mattina/feed-reader-te
 
 ## Resources used to build the test suites
 
-**Menu:**
+**Menu click referencing:**
 - https://discussions.udacity.com/t/having-issues-with-testing-the-visibility-of-the-menu/181639/4
 
-**New Feed Selection:**
+**Initial Entries class referencing:**
+- https://discussions.udacity.com/t/initial-entries-questions/183639
+
+**New Feed Selection new feed referencing:**
 - https://discussions.udacity.com/t/new-feed-selection-test/15741
 
 **Udacity resources:**
