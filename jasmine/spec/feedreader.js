@@ -66,22 +66,20 @@ $(function() {
             expect($('.feed .entry').length).not.toBe(0);
         });
     });
-
-
-
+    
     // Test suite for new feeds
     describe('New Feed Selection', function() {
-        // Ensure feed content changes when a new feed is loaded
         let entries,
             oldFeed,
             newFeed;
-         
+        // Ensure asynchronous function loadFeed has completed
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
             });
         });
 
+        // Ensure feed content changes when a new feed is loaded
         it('changes content', function(done) {
             entries = $('.feed').find('.entry');
             oldFeed = entries[0].innerText;
