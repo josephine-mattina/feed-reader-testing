@@ -82,8 +82,7 @@ $(function() {
          // * a single .entry element within the .feed container.
          // * Remember, loadFeed() is asynchronous so this test will require
          // * the use of Jasmine's beforeEach and asynchronous done() function.
-         
-        let entries = document.querySelectorAll('.entry-link');
+
 
         beforeEach(function(done) {
             loadFeed(0, function() {
@@ -92,9 +91,10 @@ $(function() {
         });
 
         it('should contain at least one feed', function() {
-            expect(entries.length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
+
 
 
     // /* TODO: Write a new test suite named "New Feed Selection" */
